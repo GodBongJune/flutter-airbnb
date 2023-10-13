@@ -1,3 +1,4 @@
+import 'package:air_bnb/components/home/home_body.dart';
 import 'package:air_bnb/components/home/home_header.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         body: ListView(
           children: [
             HomeHeader(),
+            HomeBody(),
           ],
         ),
       ),
