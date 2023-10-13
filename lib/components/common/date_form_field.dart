@@ -2,6 +2,7 @@ import 'package:air_bnb/components/common/calendar.dart';
 import 'package:air_bnb/size.dart';
 import 'package:air_bnb/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class DateFormField extends StatefulWidget {
   final prefixText;
@@ -13,6 +14,16 @@ class DateFormField extends StatefulWidget {
 }
 
 class _DateFormFieldState extends State<DateFormField> {
+  late TextEditingController textEditingController;
+  DateTime selectedDate = DateTime.now();
+
+  @override
+  void initState() {
+    super.initState();
+    textEditingController = TextEditingController(
+        text: DateFormat("yyyy-MM-dd").format(DateTime.now()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -20,6 +31,7 @@ class _DateFormFieldState extends State<DateFormField> {
         Padding(
           padding: const EdgeInsets.all(gap_xs),
           child: TextFormField(
+            controller: textEditingController,
             textAlignVertical: TextAlignVertical.bottom,
             decoration: InputDecoration(
                 border:
@@ -44,7 +56,9 @@ class _DateFormFieldState extends State<DateFormField> {
                 context: context,
                 builder: (context) {
                   return AlertDialog(
-                    actions: [Calendar()],
+                    actions: [
+                      Calendar(),
+                    ],
                   );
                 },
               );

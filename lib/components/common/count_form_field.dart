@@ -14,6 +14,7 @@ class CountFormField extends StatefulWidget {
 
 class _CountFormFieldState extends State<CountFormField> {
   late TextEditingController textEditingController;
+
   int currentCount = 0;
 
   @override
@@ -31,7 +32,9 @@ class _CountFormFieldState extends State<CountFormField> {
           padding: const EdgeInsets.all(gap_xs),
           child: TextFormField(
             keyboardType: TextInputType.number,
-            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+            inputFormatters: [
+              FilteringTextInputFormatter.digitsOnly,
+            ],
             controller: textEditingController,
             textAlignVertical: TextAlignVertical.bottom,
             decoration: InputDecoration(
